@@ -2,3 +2,39 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+@layer base {
+  body {
+    @apply bg-[#16161e];
+  }
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+@layer utilities {
+
+
+  .scrolling-text-container:hover .scrolling-text {
+    transform: translateX(-100%);
+  }
+
+
+
+  .fuzzy-overlay {
+    animation: animate-gradient 0.5s linear infinite both;
+    background-repeat: repeat;
+    inset-area: -200%;
+  }
+
+  @keyframes animate-gradient{
+    0% {
+      transform: translateX(10%) translateY(10%);
+    }
+    100% {
+      transform: translateX(-10%) translateY(-10%);
+    }
+  }
+}

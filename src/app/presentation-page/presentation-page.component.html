@@ -1,0 +1,8 @@
+<div class="bg-[#16161e] font-bold text-first-theme text-center flex-col gap-8 p-9 h-svh flex items-center justify-center">
+  <p class="uppercase">{{ textoActual }}</p>
+  <button class="py-2 border-y-2 border-first-theme" *ngIf="!isFinalText" (click)="changeInformation()">CONTINUAR</button>
+  <div *ngIf="isFinalText" class="flex gap-9">
+    <a class="" href="register" role="button">Si</a>
+    <a class="" href="home" role="button">No</a>
+  </div>
+</div>
