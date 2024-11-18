@@ -3,12 +3,11 @@
     <span>Iniciar sesión</span>
   </a>
 
-  <a role="button" href="presentation" *ngIf="isAuthenticated$ | async">
+  <a role="button" href="presentation" *ngIf="isNotAuthenticated$ | async ">
     <span>Registrarse</span>
   </a>
 
   <a role="button" (click)="closeSession()" *ngIf="isAuthenticated$ | async">
     <span>Cerrar sesión</span>
   </a>
-  <!-- <app-navbar></app-navbar> -->
 </div>
