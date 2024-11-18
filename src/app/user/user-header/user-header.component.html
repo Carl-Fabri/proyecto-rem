@@ -1,0 +1,14 @@
+<div class="flex justify-end gap-5 mb-5 font-bold text-first-theme">
+  <a role="button" href="login" *ngIf="isNotAuthenticated$ | async ">
+    <span>Iniciar sesión</span>
+  </a>
+
+  <a role="button" href="presentation" *ngIf="isAuthenticated$ | async">
+    <span>Registrarse</span>
+  </a>
+
+  <a role="button" (click)="closeSession()" *ngIf="isAuthenticated$ | async">
+    <span>Cerrar sesión</span>
+  </a>
+  <!-- <app-navbar></app-navbar> -->
+</div>

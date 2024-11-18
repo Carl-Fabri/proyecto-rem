@@ -1,4 +1,4 @@
-<section >
+<section>
   <div class="flex justify-end gap-5 pr-5 m-4 mb-1 font-bold text-first-theme">
     <a role="button" href="/">
       <span>Home</span>
@@ -7,20 +7,19 @@
 
   <div class="p-8 pt-2 bg-[#16171d]">
 
-    <form class="content-center justify-center h-screen align-middle border border-yellow-500 p-14 justify-items-center text-first-theme">
+    <form class="content-center justify-center h-screen align-middle border border-yellow-500 p-14 justify-items-center text-first-theme" [formGroup]="form" (ngSubmit)="login()">
       <div class="mx-auto max-w-[30rem] w-full">
         <h2 class="mt-6 mb-8 text-3xl font-extrabold text-first-theme">Ingresa ahora</h2>
-
       </div>
 
       <div class="max-w-[30rem] w-full mx-auto">
         <div class="mb-4 ">
           <label class="block mb-2 text-sm font-bold text-first-theme" for="usuario">USUARIO</label>
-          <input class="w-full px-3 py-2 text-white rounded bg-[#16171d] border border-first-theme glow focus:outline-none focus:ring-2 focus:ring-yellow-500" id="usuario" type="text" placeholder="Ingresa tu usuario">
+          <input class="w-full px-3 py-2 text-white rounded bg-[#16171d] border border-first-theme glow focus:outline-none focus:ring-2 focus:ring-yellow-500" id="usuario" type="text" placeholder="Ingresa tu usuario" formControlName="email">
       </div>
       <div class="mb-6">
           <label class="block mb-2 text-sm font-bold text-first-theme" for="password">CONTRASEÑA</label>
-          <input class="w-full px-3 py-2 text-white rounded bg-[#16171d] border border-first-theme glow focus:outline-none focus:ring-2 focus:ring-yellow-500" id="password" type="password" placeholder="Ingresa tu contraseña">
+          <input class="w-full px-3 py-2 text-white rounded bg-[#16171d] border border-first-theme glow focus:outline-none focus:ring-2 focus:ring-yellow-500" id="password" type="password" placeholder="Ingresa tu contraseña" formControlName="password">
 
           <div class="mt-5 text-end">
             <a class="hover:text-yellow-500" href="register">¿No tienes una cuenta? Crea una aqui.</a>
@@ -30,7 +29,7 @@
 
 
       <div class="flex items-center justify-between">
-          <button class="px-4 py-2 font-bold text-center text-white rounded bg-first-theme hover:bg-yellow-700 focus:outline-none focus:shadow-outline" type="button">
+          <button class="px-4 py-2 font-bold text-center text-white rounded bg-first-theme hover:bg-yellow-700 focus:outline-none focus:shadow-outline" type="submit" [disabled]="!form.valid">
               Iniciar Sesión
           </button>
       </div>

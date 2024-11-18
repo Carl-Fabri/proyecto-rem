@@ -1,17 +1,51 @@
 import { Routes } from '@angular/router';
-import path from 'path';
+import { HomeComponent } from './home/home.component';
+import { adminGuard, privateGuard, publicGuard } from './shared/guards/auth.guard';
+import { DashboardComponent } from './admin/dashboard/dashboard.component';
 import { HypnoproyeccionesComponent } from './hypnoproyecciones/hypnoproyecciones.component';
 import { LoginComponent } from './login/login.component';
-import { HomeComponent } from './home/home.component';
-import { MakeDreamComponent } from './make-dream/make-dream.component';
-import { PresentationPageComponent } from './presentation-page/presentation-page.component';
-import { RegisterComponent } from './register/register.component';
+import { AdminLayoutComponent } from './admin/admin-layout/admin-layout.component';
+import { UserLayoutComponent } from './user/user-layout/user-layout.component';
 
 export const routes: Routes = [
-  {path: '',component : HomeComponent},
-  {path: 'hypnoproyecciones',component : HypnoproyeccionesComponent},
-  {path: 'login',component : LoginComponent},
-  {path: 'make-dream',component : MakeDreamComponent},
-  {path: 'presentation',component : PresentationPageComponent},
-  {path: 'register', component: RegisterComponent}
+  {
+    path: '',
+    component : HomeComponent,
+  },
+  {
+    path: 'login',
+    canActivate: [publicGuard],
+    loadComponent: () => import('./login/login.component').then(m => m.LoginComponent),
+  },
+
+  //Auth routes
+  {
+    path: 'register',
+    canActivate: [publicGuard],
+    loadComponent: () => import('./register/register.component').then(m => m.RegisterComponent),
+  },
+  {
+    path: 'presentation',
+    canActivate: [publicGuard],
+    loadComponent: () => import('./presentation-page/presentation-page.component').then(m => m.PresentationPageComponent),
+  },
+  {
+    path: 'hypnoproyecciones',
+    canActivate: [privateGuard],
+    component: HypnoproyeccionesComponent,
+  },
+
+  //User routes
+  {
+    path: 'user',
+    component: UserLayoutComponent,
+    loadChildren: () => import('./user/user.routes')
+  },
+
+  //Admin routes
+  {
+    path: 'admin',
+    component: AdminLayoutComponent,
+    loadChildren: () => import('./admin/admin.routes')
+  },
 ];

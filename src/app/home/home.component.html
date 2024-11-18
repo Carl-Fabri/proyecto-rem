@@ -1,52 +1,38 @@
-<section class="bg-[#16161e] p-5 relative min-h-[100vh]">
 
-  <div class="flex justify-end gap-5 mb-5 font-bold text-first-theme">
-    <a role="button" href="login">
-      <span>Iniciar sesión</span>
-    </a>
 
-    <a role="button" href="presentation">
-      <span>Registrarse</span>
-    </a>
-    <!-- <app-navbar></app-navbar> -->
-  </div>
-
-  <div class="flex flex-col gap-10 p-12 border-4 border-first-theme h-[90vh] min-h-[30rem] justify-center ">
-    <cdk-accordion class="example-accordion">
-      <cdk-accordion-item
-              #accordionItem="cdkAccordionItem"
-              class="cursor-default example-accordion-item"
-              role="button"
-              tabindex="0"
-              [attr.id]="'accordion-header-' + 1"
-              [attr.aria-expanded]="accordionItem.expanded">
-        <div class="mb-3 cursor-pointer example-accordion-item-header" (click)="accordionItem.toggle()">
-          <a class="text-2xl font-bold text-first-theme ">HYPNOPROYECCIONES</a>
-        </div>
-        <div
-          class="pl-20 example-accordion-item-body"
-          role="region"
-          [style.display]="accordionItem.expanded ? '' : 'none'"
-          [attr.id]="'accordion-body-' + 1"
-          [attr.aria-labelledby]="'accordion-header-' + 1">
-          <div class="flex flex-col gap-1">
-            <div class="my-1">
-              <a class="text-xl font-bold cursor-pointer text-first_theme text-first-theme" href="/hypnoproyecciones">GALERIA DE SUEÑOS</a>
-            </div>
-            <div class="my-1">
-              <a class="text-xl font-bold cursor-pointer text-first-theme" href="/make-dream">COMPARTE UN SUEÑO</a>
-            </div>
-            <div class="my-1">
-              <a class="text-xl font-bold cursor-pointer text-first-theme" href="hypnoproyecciones">MIS SUEÑOS</a>
+    <div class="flex flex-col gap-10 p-12 border-4 border-first-theme h-[90vh] min-h-[30rem] justify-center main-menu">
+      <cdk-accordion class="example-accordion">
+        <cdk-accordion-item
+                #accordionItem="cdkAccordionItem"
+                class="cursor-default example-accordion-item"
+                role="button"
+                tabindex="0"
+                [attr.id]="'accordion-header-' + 1"
+                [attr.aria-expanded]="accordionItem.expanded">
+          <div cla  ss="mb-3 cursor-pointer example-accordion-item-header" (click)="accordionItem.toggle()">
+            <a class="main-menu-item">HYPNOPROYECCIONES</a>
+          </div>
+          <div
+            role="region"
+            [style.display]="accordionItem.expanded ? '' : 'none'"
+            [attr.id]="'accordion-body-' + 1"
+            [attr.aria-labelledby]="'accordion-header-' + 1">
+            <div class="sub-item-accordion">
+              <div class="my-1">
+                <a href="/hypnoproyecciones">GALERIA DE SUEÑOS</a>
+              </div>
+              <div class="my-1">
+                <a href="/make-dream">COMPARTE UN SUEÑO</a>
+              </div>
+              <div class="my-1">
+                <a href="hypnoproyecciones">MIS SUEÑOS</a>
+              </div>
             </div>
           </div>
-        </div>
-      </cdk-accordion-item>
-    </cdk-accordion>
-    <a class="mb-3 text-2xl font-bold text-first-theme" href="/hypnoproyecciones">HYPNOVISION</a>
-    <a class="text-2xl font-bold text-first-theme" href="/hypnoproyecciones">SOBRE NOSOTOROS</a>
-  </div>
+        </cdk-accordion-item>
+      </cdk-accordion>
+      <a class="main-menu-item" href="/hypnoproyecciones">HYPNOVISION</a>
+      <a class="main-menu-item" href="/hypnoproyecciones">SOBRE NOSOTOROS</a>
+    </div>
 
-  <!-- <div class="h-screen fuzzy-overlay bg-[url('/img/white-noise.png')] " ></div> -->
-</section>
 

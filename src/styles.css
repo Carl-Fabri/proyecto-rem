@@ -5,14 +5,27 @@
 
 
 @layer base {
+
+  html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
   body {
     @apply bg-[#16161e];
   }
+
+  /*--- Home styles ---*/
+  .main-menu a.main-menu-item{
+    @apply text-2xl font-bold underline transition-all md:text-2xl text-first-theme hover:text-3xl;
+  }
+
+  .main-menu .sub-item-accordion{
+    @apply flex flex-col gap-1 pl-20 mt-5 ;
+  }
+
+  .main-menu .sub-item-accordion div > a{
+    @apply mt-5 text-lg font-bold cursor-pointer hover:text-xl text-first-theme;
+  }
 }
-
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-
 
 @layer utilities {
 
@@ -20,8 +33,6 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   .scrolling-text-container:hover .scrolling-text {
     transform: translateX(-100%);
   }
-
-
 
   .fuzzy-overlay {
     animation: animate-gradient 0.5s linear infinite both;
@@ -38,3 +49,6 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     }
   }
 }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
