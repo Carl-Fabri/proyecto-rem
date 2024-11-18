@@ -4,13 +4,12 @@ import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontaweso
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import { far } from '@fortawesome/free-regular-svg-icons';
 import { fab } from '@fortawesome/free-brands-svg-icons';
-import { NavbarComponent } from '../components/navbar/navbar.component';
 
 
 @Component({
   selector: 'app-hypnoproyecciones',
   standalone: true,
-  imports: [FontAwesomeModule,NavbarComponent],
+  imports: [FontAwesomeModule],
   templateUrl: './hypnoproyecciones.component.html',
   styleUrl: './hypnoproyecciones.component.css'
 })

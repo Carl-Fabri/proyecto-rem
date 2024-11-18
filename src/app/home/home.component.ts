@@ -1,14 +1,12 @@
 import { Component, Directive, inject, OnInit } from '@angular/core';
 import {CdkAccordionModule} from '@angular/cdk/accordion';
-import { NavbarComponent } from "../components/navbar/navbar.component";
-import { AuthService } from '../core/service/auth.service';
 import { AuthStateService } from '../data-access/auth-state.service';
 import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CdkAccordionModule, NavbarComponent,CommonModule],
+  imports: [CdkAccordionModule,CommonModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
