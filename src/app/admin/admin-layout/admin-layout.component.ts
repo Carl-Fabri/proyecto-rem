@@ -9,5 +9,5 @@ import { AdminHeaderComponent } from '../admin-header/admin-header.component';
   templateUrl: './admin-layout.component.html',
 })
 export class AdminLayoutComponent {
-
+  
 }
