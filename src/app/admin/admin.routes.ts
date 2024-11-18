@@ -1,6 +1,6 @@
 import path from "path";
-import { adminGuard } from "../shared/guards/auth.guard";
 import { DashboardComponent } from "./dashboard/dashboard.component";
+import { adminGuard } from "../shared/guards/admin.guard";
 
 export default [
 

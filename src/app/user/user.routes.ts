@@ -1,5 +1,6 @@
 import { Routes } from "@angular/router";
-import { privateGuard } from "../shared/guards/auth.guard";
+import { privateGuard } from "../shared/guards/private.guard";
+
 
 export default [
   {
