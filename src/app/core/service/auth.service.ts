@@ -7,6 +7,7 @@ import { LoginRequest } from '../interfaces/login-request';
 import { AuthResponse } from '../interfaces/auth-response';
 
 import { StorageService } from '../../shared/data-access/storage.service';
+import { RegisertRequest } from '../interfaces/register-request';
 
 @Injectable({
   providedIn: 'root'
@@ -29,5 +30,19 @@ export class AuthService {
         })
     );
   }
+
+  register(data:RegisertRequest):Observable<AuthResponse> {
+    return this.http
+    .post<AuthResponse>(`${this.apiUrl}/auth/register`,data)
+      .pipe(
+        tap((Response)=>{
+          if(Response.success){
+            this._storage.set('session', Response);
+          }
+        })
+    );
+  }
+
+
 
 }

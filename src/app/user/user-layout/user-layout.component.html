@@ -1,7 +1,23 @@
-<section class="bg-[#16161e] relative min-h-[100vh] p-5">
-
-  <app-user-header></app-user-header>
-  <router-outlet></router-outlet>
-  <div class="fixed inset-0 z-10 w-full h-full pointer-events-none opacity-[0.04] bg-[url('/img/noise.gif')] ">
-</div>
+<section class="bg-[#16161e] relative min-h-[100vh]">
+  <mat-sidenav-container class="bg-transparent user-navbar-content">
+    <mat-sidenav #snav class="user-content-sidebar" [mode]="'over'" [fixedInViewport]="true">
+      <div class="w-full px-3 py-4 text-right">
+        <button class="" mat-icon-button (click)="closeMenu()">
+          <mat-icon class="text-first-theme">close</mat-icon>
+        </button>
+      </div>
+      <mat-nav-list class="user-sidebar-element">
+        <a class="sidebar-element" mat-list-item routerLink="/">Home</a>
+        <a class="sidebar-element" mat-list-item routerLink="/hypnoproyecciones">Hypnoproyecciones</a>
+        <a class="sidebar-element" mat-list-item routerLink="/user/make-dream">Subir hypnoproyeccion</a>
+      </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <app-user-header></app-user-header>
+      <div class="pb-3 px-9">
+        <router-outlet></router-outlet>
+      </div>
+      <div class="fixed inset-0 z-10 w-full h-full pointer-events-none opacity-[0.04] bg-[url('/img/noise.gif')] "></div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
 </section>

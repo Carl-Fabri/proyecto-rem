@@ -1,13 +1,91 @@
-<div class="flex justify-end gap-5 mb-5 font-bold text-first-theme">
-  <a role="button" href="login" *ngIf="isNotAuthenticated$ | async ">
-    <span>Iniciar sesión</span>
-  </a>
+<nav class="flex items-center justify-between py-2 font-bold px-9 text-first-theme nav-bar-user">
+  <ul class="flex items-center gap-4">
+    <li class="block md:hidden">
+      <button class="px-0" mat-icon-button (click)="toggleMenu()">
+        <mat-icon class="text-first-theme">menu</mat-icon>
+      </button>
+    </li>
+    <li class="hidden md:block nav-item">
+      <a  role="button"
+          *ngIf="isAuthenticated$ | async"
+          routerLink="/home"
+          [ngClass]="{'select w-24': home.isActive,
+        'w-8': !home.isActive}"
+          #home="routerLinkActive"
+          routerLinkActive="active"
+          ariaCurrentWhenActive="page"
+          [routerLinkActiveOptions]="{exact:true}"
+          class="group hover:w-24">
+        <fa-icon [icon]="['fas','home']"></fa-icon>
+        <span
+        class="group-hover:visible group-hover:ease-in-out"
+        [ngClass]="{'visible': home.isActive,
+      'invisible': !home.isActive}"
+        >Home</span>
+    </a>
+    </li>
+    <li class="hidden md:block nav-item">
+      <a role="button"
+        *ngIf="isAuthenticated$ | async"
+        [ngClass]="{'w-52 select': hypnoproyections.isActive,
+        'w-8': !hypnoproyections.isActive}"
+        #hypnoproyections="routerLinkActive"
+        routerLink="/hypnoproyecciones"
+        routerLinkActive="active"
+        ariaCurrentWhenActive="page"
+        [routerLinkActiveOptions]="{ exact: true }"
+        class="group hover:w-52">
+        <fa-icon [icon]="['fas','cloud']"></fa-icon>
+        <span class="group-hover:visible group-hover:ease-in-out"
+        [ngClass]="{'visible': hypnoproyections.isActive,
+      'invisible': !hypnoproyections.isActive}">Hypnoproyecciones</span>
+      </a>
+    </li>
+    <li class="hidden md:block nav-item">
+      <a role="button"
+        *ngIf="isAuthenticated$ | async"
+        [ngClass]="{'w-56 select': make_dream.isActive,
+        'w-8': !make_dream.isActive}"
+        #make_dream="routerLinkActive"
+        routerLinkActive="active"
+        ariaCurrentWhenActive="page"
+        [routerLinkActiveOptions]="{ exact: true }"
+        routerLink="/user/make-dream"
+        class="group hover:w-56">
+        <fa-icon class="text-xl icon-brand" [icon]="['fas','circle-plus']"></fa-icon>
+        <span
+        class="group-hover:visible group-hover:ease-in-out"
+        [ngClass]="{'visible': make_dream.isActive,
+      'invisible': !make_dream.isActive}">Subir hypnoproyeccion</span>
+      </a>
+    </li>
+  </ul>
 
-  <a role="button" href="presentation" *ngIf="isNotAuthenticated$ | async ">
-    <span>Registrarse</span>
-  </a>
-
-  <a role="button" (click)="closeSession()" *ngIf="isAuthenticated$ | async">
-    <span>Cerrar sesión</span>
-  </a>
-</div>
+  <!-- Right header -->
+  <div class="flex justify-end gap-5 nav-item">
+    <a  role="button"
+        routerLink="/user/profile"
+        routerLinkActive="active"
+        #profile_router="routerLinkActive"
+        [ngClass]="{'w-24 select': profile_router.isActive,
+        'w-8': !profile_router.isActive}"
+        ariaCurrentWhenActive="page"
+        class="p-2 group hover:w-24"
+        *ngIf="isAuthenticated$ | async">
+        <fa-icon class="text-xl icon-brand" [icon]="['fas', 'user']"></fa-icon>
+      <span
+        class="group-hover:visible group-hover:ease-in-out"
+        [ngClass]="{'visible': profile_router.isActive,
+      'invisible': !profile_router.isActive}">Perfil</span>
+    </a>
+    <a role="button" routerLink="login" class="p-2" *ngIf="isNotAuthenticated$ | async ">
+      <span>Iniciar sesión</span>
+    </a>
+    <a role="button" routerLink="presentation" class="p-2" *ngIf="isNotAuthenticated$ | async ">
+      <span>Registrarse</span>
+    </a>
+    <a role="button" (click)="closeSession()" class="p-2" *ngIf="isAuthenticated$ | async">
+      <span>Cerrar sesión</span>
+    </a>
+  </div>
+</nav>

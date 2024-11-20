@@ -1,3 +1,8 @@
+@import "@angular/material/prebuilt-themes/azure-blue.css";
+
+
+/*--- Navbar properties ---*/
+
 /* You can add global styles to this file, and also import other style files */
 @tailwind base;
 @tailwind components;
@@ -25,10 +30,39 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   .main-menu .sub-item-accordion div > a{
     @apply mt-5 text-lg font-bold cursor-pointer hover:text-xl text-first-theme;
   }
+
+  .content-sidebar-user{
+    @apply flex flex-col gap-5;
+  }
+
 }
+
+/*--- Navbar properties ---*/
+
+.nav-bar-user .nav-item > a{
+  @apply flex items-center gap-2 p-2 transition-all duration-500 rounded-xl hover:bg-white;
+}
+.nav-bar-user .nav-item > a.select{
+  @apply bg-white;
+}
+
+.nav-bar-user .nav-item > a > span{
+  @apply overflow-hidden transition-all duration-300 text-nowrap;
+}
+
 
 @layer utilities {
 
+  .user-navbar-content{
+    background-color: transparent !important;
+  }
+
+  .user-content-sidebar .mat-drawer-inner-container{
+    background-color: #16161e;
+  }
+  .user-content-sidebar .mat-drawer-inner-container .user-sidebar-element .sidebar-element span{
+    color: #b8996e;
+  }
 
   .scrolling-text-container:hover .scrolling-text {
     transform: translateX(-100%);
@@ -49,6 +83,3 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     }
   }
 }
-
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
