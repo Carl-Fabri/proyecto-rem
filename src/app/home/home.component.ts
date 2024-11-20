@@ -2,11 +2,12 @@ import { Component, Directive, inject, OnInit } from '@angular/core';
 import {CdkAccordionModule} from '@angular/cdk/accordion';
 import { AuthStateService } from '../data-access/auth-state.service';
 import { CommonModule } from '@angular/common';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CdkAccordionModule,CommonModule],
+  imports: [CdkAccordionModule,CommonModule, RouterLink],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })

@@ -9,7 +9,7 @@
                 tabindex="0"
                 [attr.id]="'accordion-header-' + 1"
                 [attr.aria-expanded]="accordionItem.expanded">
-          <div cla  ss="mb-3 cursor-pointer example-accordion-item-header" (click)="accordionItem.toggle()">
+          <div class="mb-3 cursor-pointer example-accordion-item-header" (click)="accordionItem.toggle()">
             <a class="main-menu-item">HYPNOPROYECCIONES</a>
           </div>
           <div
@@ -19,13 +19,13 @@
             [attr.aria-labelledby]="'accordion-header-' + 1">
             <div class="sub-item-accordion">
               <div class="my-1">
-                <a href="/hypnoproyecciones">GALERIA DE SUEÑOS</a>
+                <a routerLink="/hypnoproyecciones">GALERIA DE SUEÑOS</a>
               </div>
               <div class="my-1">
-                <a href="/user/make-dream">COMPARTE UN SUEÑO</a>
+                <a routerLink="/user/make-dream">COMPARTE UN SUEÑO</a>
               </div>
               <div class="my-1">
-                <a href="hypnoproyecciones">MIS SUEÑOS</a>
+                <a routerLink="/hypnoproyecciones">MIS SUEÑOS</a>
               </div>
             </div>
           </div>
