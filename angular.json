@@ -98,6 +98,7 @@
             ],
             "styles": [
               "@angular/material/prebuilt-themes/azure-blue.css",
+              "src/app.component.css",
               "src/styles.css"
             ],
             "scripts": []

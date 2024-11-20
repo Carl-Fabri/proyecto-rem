@@ -7,6 +7,7 @@ import { AdminLayoutComponent } from './admin/admin-layout/admin-layout.componen
 import { UserLayoutComponent } from './user/user-layout/user-layout.component';
 import { privateGuard } from './shared/guards/private.guard';
 import { authGuard } from './shared/guards/auth.guard';
+import { adminGuard } from './shared/guards/admin.guard';
 
 export const routes: Routes = [
 
@@ -53,6 +54,7 @@ export const routes: Routes = [
   //User routes
   {
     path: 'user',
+    canActivate: [privateGuard],
     component: UserLayoutComponent,
     loadChildren: () => import('./user/user.routes')
   },
@@ -61,7 +63,11 @@ export const routes: Routes = [
   //Admin routes
   {
     path: 'admin',
+    canActivate: [adminGuard],
     component: AdminLayoutComponent,
-    loadChildren: () => import('./admin/admin.routes')
+    loadChildren: () => import('./admin/admin.routes'),
+    data: {
+      roles: ['admin']
+    }
   },
 ];

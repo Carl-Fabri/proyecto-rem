@@ -10,7 +10,7 @@ export default [
       import("../user/userproyections/userproyections.component").then(m => m.UserproyectionsComponent),
   },
   {
-    path: "user-detials",
+    path: "profile",
     canActivate: [privateGuard],
     loadComponent: () =>
       import("../user/user-details/user-details.component").then(m => m.UserDetailsComponent),
