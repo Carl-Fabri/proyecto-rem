@@ -8,7 +8,7 @@
 
 
   <div class="p-8 bg-[#16171d] pt-2">
-    <form class="content-center justify-center h-screen align-middle border border-yellow-500 p-14 justify-items-center text-first-theme">
+    <form class="content-center justify-center h-screen align-middle border border-yellow-500 p-14 justify-items-center text-first-theme" [formGroup]="form" (ngSubmit)="register()">
       <div class="mb-8 text-center max-w-[30rem] w-full mx-auto">
         <h2 class="mt-6 mb-2 text-3xl font-extrabold text-first-theme">Bienvenido a <strong>PROYECTO REM</strong> </h2>
         <p>Comienza creando una cuenta</p>
@@ -17,21 +17,21 @@
       <div class="max-w-[30rem] w-full mx-auto">
         <div class="mb-4 ">
           <label class="block mb-2 text-sm font-bold uppercase text-first-theme" for="usuario">NOMBRES Y APELLIDOS</label>
-          <input class="w-full px-3 py-2 text-white rounded bg-[#16171d] border border-first-theme glow focus:outline-none focus:ring-2 focus:ring-yellow-500" id="usuario" type="text" placeholder="Ingresa tu usuario">
+          <input class="w-full px-3 py-2 text-white rounded bg-[#16171d] border border-first-theme glow focus:outline-none focus:ring-2 focus:ring-yellow-500" id="usuario" type="text" placeholder="Ingresa tu usuario" formControlName="name">
         </div>
 
         <div class="mb-4 ">
           <label class="block mb-2 text-sm font-bold uppercase text-first-theme" for="usuario">Correo electronico</label>
-          <input class="w-full px-3 py-2 text-white rounded bg-[#16171d] border border-first-theme glow focus:outline-none focus:ri ng-2 focus:ring-yellow-500" id="usuario" type="text" placeholder="Ingresa tu correo electronico">
+          <input class="w-full px-3 py-2 text-white rounded bg-[#16171d] border border-first-theme glow focus:outline-none focus:ri ng-2 focus:ring-yellow-500" id="usuario" type="text" placeholder="Ingresa tu correo electronico" formControlName="email">
         </div>
         <div class="mb-4">
           <label class="block mb-2 text-sm font-bold text-first-theme" for="password">CONTRASEÑA</label>
-          <input class="w-full px-3 py-2 text-white rounded bg-[#16171d] border border-first-theme glow focus:outline-none focus:ring-2 focus:ring-yellow-500" id="password" type="password" placeholder="Ingresa tu contraseña">
+          <input class="w-full px-3 py-2 text-white rounded bg-[#16171d] border border-first-theme glow focus:outline-none focus:ring-2 focus:ring-yellow-500" id="password" type="password" formControlName="password" placeholder="Ingresa tu contraseña">
         </div>
 
       <div class="mb-6">
           <label class="block mb-2 text-sm font-bold uppercase text-first-theme" for="password">Confirmar contraseña</label>
-          <input class="w-full px-3 py-2 text-white rounded bg-[#16171d] border border-first-theme glow focus:outline-none focus:ring-2 focus:ring-yellow-500" id="password" type="password" placeholder="confirma tu contraseña">
+          <input class="w-full px-3 py-2 text-white rounded bg-[#16171d] border border-first-theme glow focus:outline-none focus:ring-2 focus:ring-yellow-500" id="password" type="password" placeholder="confirma tu contraseña" formControlName="confirmPassword">
 
           <div class="mt-5 text-end">
             <a class="hover:text-yellow-500" href="login">¿Ya tienes una cuenta? Ingresa aqui.</a>
@@ -41,8 +41,8 @@
 
 
       <div class="flex items-center justify-between">
-          <button class="px-4 py-2 font-bold text-center text-white bg-yellow-700 rounded focus:outline-none focus:shadow-outline" type="button">
-              Iniciar Sesión
+          <button class="px-4 py-2 font-bold text-center text-white bg-yellow-700 rounded focus:outline-none focus:shadow-outline" type="button" type="submit" [disabled]="!form.valid">
+              Registrarse
           </button>
       </div>
       </div>
