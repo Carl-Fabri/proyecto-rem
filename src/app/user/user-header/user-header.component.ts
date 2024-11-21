@@ -12,15 +12,17 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {HeaderNavService } from './header-nav.service';
+import {MatMenuTrigger, MatMenu} from '@angular/material/menu';
 
 @Component({
   selector: 'app-user-header',
   standalone: true,
-  imports: [CommonModule, FontAwesomeModule,RouterLink, MatToolbarModule, MatToolbarModule, MatButtonModule, MatIconModule, MatListModule,RouterLinkActive],
+  imports: [CommonModule, FontAwesomeModule,RouterLink, MatToolbarModule, MatToolbarModule, MatButtonModule, MatIconModule, MatListModule,RouterLinkActive,MatMenuTrigger,MatMenu],
   templateUrl: './user-header.component.html',
   styleUrl: './user-header.component.css'
 })
 export class UserHeaderComponent implements OnInit{
+  @ViewChild(MatMenuTrigger) trigger: MatMenuTrigger;
 
   mobileQuery: MediaQueryList;
   private _mobileQueryListener: () => void;
