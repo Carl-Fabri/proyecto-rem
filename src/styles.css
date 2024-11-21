@@ -36,8 +36,6 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     @apply flex flex-col gap-5;
   }
 
-}
-
 /*--- Navbar properties ---*/
 
 .nav-bar-user .nav-item > a{
@@ -51,8 +49,23 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   @apply overflow-hidden transition-all duration-300 text-nowrap;
 }
 
+.nav-bar-user .button-options{
+  @apply h-auto py-2;
+}
+
+/*--- Butto---*/
+}
+
+
+
 
 @layer utilities {
+
+  @media (min-width: 768px) {
+    .options-items{
+      display: none !important;
+    }
+  }
 
   .user-navbar-content{
     background-color: transparent !important;

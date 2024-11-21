@@ -12,21 +12,21 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {HeaderNavService } from './header-nav.service';
-import {MatMenuTrigger, MatMenu} from '@angular/material/menu';
+import {MatMenuTrigger, MatMenu,MatMenuModule} from '@angular/material/menu';
+import { LoginRequest } from '../../core/interfaces/login-request';
 
 @Component({
     selector: 'app-user-header',
     standalone: true,
-      imports: [RouterModule, CommonModule, FontAwesomeModule,  MatToolbarModule, MatToolbarModule, MatButtonModule, MatIconModule, MatListModule,  MatMenuTrigger, MatMenu,RouterLink,RouterLinkActive],
+      imports: [RouterModule, CommonModule, FontAwesomeModule,  MatToolbarModule, MatToolbarModule, MatButtonModule, MatIconModule, MatListModule,  MatMenuTrigger, MatMenu,RouterLink,RouterLinkActive,MatMenuModule],
 
     templateUrl: './user-header.component.html',
     styleUrl: './user-header.component.css'
 })
 
-// imports: [CommonModule, FontAwesomeModule, , MatToolbarModule, MatToolbarModule, MatButtonModule, MatIconModule, MatListModule, , MatMenuTrigger, MatMenu],
 export class UserHeaderComponent implements OnInit{
   @ViewChild(MatMenuTrigger) trigger: MatMenuTrigger;
-
+  userInfo: LoginRequest | null = null;
 
   mobileQuery: MediaQueryList;
   private _mobileQueryListener: () => void;
@@ -42,6 +42,9 @@ export class UserHeaderComponent implements OnInit{
   ngOnInit(): void {
     this.isAuthenticated$ = of(this.authStateService.isLoggedIn());
     this.isNotAuthenticated$ = this.isAuthenticated$.pipe(map(isAuthenticated => !isAuthenticated));
+    // let complete_info = ;
+    this.userInfo = this.authStateService.getUserInfo()?.info ?? null;
+
   }
   closeSession() {
     this.authStateService.signOut();

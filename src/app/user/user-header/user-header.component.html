@@ -63,46 +63,41 @@
 
   <!-- Right header -->
   <div class="flex justify-end gap-5 nav-item">
-    <a  role="button"
-        routerLink="/user/profile"
-        routerLinkActive="active"
-        #profile_router="routerLinkActive"
-        [ngClass]="{'w-24 select': profile_router.isActive,
-        'w-8': !profile_router.isActive}"
-        ariaCurrentWhenActive="page"
-        class="p-2 group hover:w-24"
+    <a role="button" routerLink="login" class="p-2 " *ngIf="isNotAuthenticated$ | async ">
+      <span>Iniciar sesión</span>
+    </a>
+    <a role="button" routerLink="presentation" *ngIf="isNotAuthenticated$ | async ">
+      <span>Registrarse</span>
+    </a>
+    <!-- <a  role="button"
+        class=""
         *ngIf="isAuthenticated$ | async">
         <fa-icon class="text-xl icon-brand" [icon]="['fas', 'user']"></fa-icon>
       <span
         class="group-hover:visible group-hover:ease-in-out"
         [ngClass]="{'visible': profile_router.isActive,
       'invisible': !profile_router.isActive}">Perfil</span>
-    </a>
-    <a role="button" routerLink="login" class="p-2" *ngIf="isNotAuthenticated$ | async ">
-      <span>Iniciar sesión</span>
-    </a>
-    <a role="button" routerLink="presentation" class="p-2" *ngIf="isNotAuthenticated$ | async ">
-      <span>Registrarse</span>
-    </a>
-    <a role="button" (click)="closeSession()" class="p-2" *ngIf="isAuthenticated$ | async">
-      <span>Cerrar sesión</span>
-    </a>
-    <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+    </a> -->
+    <button mat-fab extended  [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu" class="w-24 p-2 select group hover:bg-white button-options" title="Marcello" *ngIf="isAuthenticated$ | async">
       <mat-icon>more_vert</mat-icon>
+      <span>{{ userInfo?.name }}</span>
     </button>
     <mat-menu #menu="matMenu">
-      <button mat-menu-item>
-        <mat-icon>dialpad</mat-icon>
-        <span>Redial</span>
-      </button>
-      <button mat-menu-item disabled>
-        <mat-icon>voicemail</mat-icon>
-        <span>Check voice mail</span>
-      </button>
-      <button mat-menu-item>
+      <button class="options-items" routerLink="login" mat-menu-item (click)="closeSession()"  *ngIf="isNotAuthenticated$ | async ">
         <mat-icon>notifications_off</mat-icon>
-        <span>Disable alerts</span>
+        <span>Iniciar session</span>
+      </button>
+      <button class="options-items" routerLink="presentation" mat-menu-item (click)="closeSession()"  *ngIf="isNotAuthenticated$ | async ">
+        <mat-icon>notifications_off</mat-icon>
+        <span>Registrarse</span>
+      </button>
+      <button class="" mat-menu-item (click)="closeSession()" >
+        <mat-icon>notifications_off</mat-icon>
+        <span>Cerrar session</span>
       </button>
     </mat-menu>
+
+
+
   </div>
 </nav>

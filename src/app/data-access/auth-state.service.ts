@@ -3,6 +3,7 @@ import { StorageService } from '../shared/data-access/storage.service';
 import { DataAuth } from '../core/interfaces/data-auth';
 import { AuthResponse } from '../core/interfaces/auth-response';
 import { UserRole } from '../core/interfaces/user-role';
+import { LoginRequest } from '../core/interfaces/login-request';
 
 @Injectable({
   providedIn: 'root'
@@ -11,6 +12,11 @@ export class AuthStateService {
   private _storageService = inject(StorageService);
   private roleAs = String;
 
+
+  getUserInfo(): { info: LoginRequest } | null {
+    const session = this.getSesstion();
+    return session ? { info: session.data.resource } : null;
+  }
 
   getSesstion(): AuthResponse | null {
     let currentSession: AuthResponse | null = null;
