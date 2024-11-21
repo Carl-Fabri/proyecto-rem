@@ -5,11 +5,10 @@ import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 
 @Component({
-  selector: 'app-home',
-  standalone: true,
-  imports: [CdkAccordionModule,CommonModule, RouterLink],
-  templateUrl: './home.component.html',
-  styleUrl: './home.component.css'
+    selector: 'app-home',
+    imports: [CdkAccordionModule, CommonModule, RouterLink],
+    templateUrl: './home.component.html',
+    styleUrl: './home.component.css'
 })
 
 export class HomeComponent implements OnInit{

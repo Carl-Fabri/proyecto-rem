@@ -9,11 +9,10 @@ import { AdminHeaderComponent } from "./admin/admin-header/admin-header.componen
 
 
 @Component({
-  selector: 'app-root',
-  standalone: true,
-  imports: [RouterOutlet, LoginComponent, HypnoproyeccionesComponent, HomeComponent, CommonModule, UserHeaderComponent, AdminHeaderComponent],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+    selector: 'app-root',
+    imports: [RouterOutlet, LoginComponent, HypnoproyeccionesComponent, HomeComponent, CommonModule, UserHeaderComponent, AdminHeaderComponent],
+    templateUrl: './app.component.html',
+    styleUrl: './app.component.css'
 })
 export class AppComponent  {
   title = 'hypnoproyecciones';

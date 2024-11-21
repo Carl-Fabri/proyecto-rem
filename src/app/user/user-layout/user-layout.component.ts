@@ -14,11 +14,10 @@ import { HeaderNavService } from '../user-header/header-nav.service';
 
 
 @Component({
-  selector: 'app-user-layout',
-  standalone: true,
-  imports: [RouterModule,UserHeaderComponent,MatSidenavContainer, MatSidenav,MatListModule,MatSidenavContent,MatIcon],
-  templateUrl: './user-layout.component.html',
-  styles: ``
+    selector: 'app-user-layout',
+    imports: [RouterModule, UserHeaderComponent, MatSidenavContainer, MatSidenav, MatListModule, MatSidenavContent, MatIcon],
+    templateUrl: './user-layout.component.html',
+    styles: ``
 })
 
 export class UserLayoutComponent  implements AfterViewInit{

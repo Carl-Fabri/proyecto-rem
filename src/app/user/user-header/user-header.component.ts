@@ -15,11 +15,10 @@ import {HeaderNavService } from './header-nav.service';
 import {MatMenuTrigger, MatMenu} from '@angular/material/menu';
 
 @Component({
-  selector: 'app-user-header',
-  standalone: true,
-  imports: [CommonModule, FontAwesomeModule,RouterLink, MatToolbarModule, MatToolbarModule, MatButtonModule, MatIconModule, MatListModule,RouterLinkActive,MatMenuTrigger,MatMenu],
-  templateUrl: './user-header.component.html',
-  styleUrl: './user-header.component.css'
+    selector: 'app-user-header',
+    imports: [CommonModule, FontAwesomeModule, RouterLink, MatToolbarModule, MatToolbarModule, MatButtonModule, MatIconModule, MatListModule, RouterLinkActive, MatMenuTrigger, MatMenu],
+    templateUrl: './user-header.component.html',
+    styleUrl: './user-header.component.css'
 })
 export class UserHeaderComponent implements OnInit{
   @ViewChild(MatMenuTrigger) trigger: MatMenuTrigger;
