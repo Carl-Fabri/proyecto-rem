@@ -6,6 +6,7 @@ import { matchPassword } from '../core/validators/match-password.validator';
 
 @Component({
     selector: 'app-register',
+    standalone: true,
     imports: [ReactiveFormsModule],
     templateUrl: './register.component.html',
     styleUrl: './register.component.css'

@@ -1,9 +1,9 @@
-import { ChangeDetectorRef, Component, inject, OnInit, ViewChild } from '@angular/core';
+import { ChangeDetectorRef, Component, Inject, inject, OnInit, ViewChild } from '@angular/core';
 import { AuthStateService } from '../../data-access/auth-state.service';
 import { CommonModule } from '@angular/common';
 import { map, Observable, of } from 'rxjs';
 import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontawesome';
-import { RouterLink, RouterLinkActive, RouterOutlet,Router } from '@angular/router';
+import {RouterLink, RouterLinkActive, RouterModule,Routes} from '@angular/router';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import { far } from '@fortawesome/free-regular-svg-icons';
 import { fab } from '@fortawesome/free-brands-svg-icons';
@@ -16,17 +16,22 @@ import {MatMenuTrigger, MatMenu} from '@angular/material/menu';
 
 @Component({
     selector: 'app-user-header',
-    imports: [CommonModule, FontAwesomeModule, RouterLink, MatToolbarModule, MatToolbarModule, MatButtonModule, MatIconModule, MatListModule, RouterLinkActive, MatMenuTrigger, MatMenu],
+    standalone: true,
+      imports: [RouterModule, CommonModule, FontAwesomeModule,  MatToolbarModule, MatToolbarModule, MatButtonModule, MatIconModule, MatListModule,  MatMenuTrigger, MatMenu,RouterLink,RouterLinkActive],
+
     templateUrl: './user-header.component.html',
     styleUrl: './user-header.component.css'
 })
+
+// imports: [CommonModule, FontAwesomeModule, , MatToolbarModule, MatToolbarModule, MatButtonModule, MatIconModule, MatListModule, , MatMenuTrigger, MatMenu],
 export class UserHeaderComponent implements OnInit{
   @ViewChild(MatMenuTrigger) trigger: MatMenuTrigger;
+
 
   mobileQuery: MediaQueryList;
   private _mobileQueryListener: () => void;
 
-  constructor(library: FaIconLibrary, private headerSide: HeaderNavService,private router: Router) {
+  constructor(library: FaIconLibrary, private headerSide: HeaderNavService) {
     library.addIconPacks(fas, far, fab);
   }
 
@@ -47,5 +52,5 @@ export class UserHeaderComponent implements OnInit{
     this.headerSide.toggle();
   }
 
-  isActive(url: string): boolean { return this.router.url === url; }
+  // isActive(url: string): boolean { return this.router.url === url; }
 }

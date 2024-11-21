@@ -10,7 +10,8 @@ import { AdminHeaderComponent } from "./admin/admin-header/admin-header.componen
 
 @Component({
     selector: 'app-root',
-    imports: [RouterOutlet, LoginComponent, HypnoproyeccionesComponent, HomeComponent, CommonModule, UserHeaderComponent, AdminHeaderComponent],
+    standalone: true,
+    imports: [RouterOutlet,  CommonModule],
     templateUrl: './app.component.html',
     styleUrl: './app.component.css'
 })
