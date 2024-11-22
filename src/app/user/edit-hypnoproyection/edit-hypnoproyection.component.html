@@ -1,0 +1,26 @@
+<h1 mat-dialog-title>Editar Hypnoproyección</h1>
+<div mat-dialog-content>
+  <form [formGroup]="form">
+    <mat-form-field appearance="fill">
+      <mat-label>Nombre</mat-label>
+      <input matInput formControlName="name">
+      <mat-error *ngIf="form.get('name')?.hasError('required')">El nombre es requerido</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Mensaje</mat-label>
+      <textarea matInput formControlName="message"></textarea>
+      <mat-error *ngIf="form.get('message')?.hasError('required')">El mensaje es requerido</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Etiquetas</mat-label>
+      <input matInput formControlName="tags">
+      <mat-error *ngIf="form.get('tags')?.hasError('required')">Las etiquetas son requeridas</mat-error>
+    </mat-form-field>
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onCancel()">Cancelar</button>
+  <button mat-button color="primary" (click)="onSave()">Guardar</button>
+</div>

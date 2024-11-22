@@ -1,67 +1,39 @@
-<section class="bg-[#16161d] h-[100vh] relative">
-  <div class="flex flex-col p-6 border-4 border-first-theme rounded-3xl h-full min-h-[30rem] text-first-theme">
-
-    <div class="min-h-[20rem] h-[90%] scroll-auto">
-      <div class="items-center w-full p-2 pl-6 border-b-2 border-first-theme"><span class="font-semibold">Filtros > </span></div>
-
-      <a role="button" class="flex flex-row w-full p-4 pl-6 border-b-2 group border-first-theme hover:border-[#cf9935]">
-        <div class="w-3/4 gap-3 font-semibold group-hover:font-bold group-hover:text-[#cf9935] content-center ">
-            <span class="mr-2">SUEÑO: Noche estrellada</span> <span class="mr-2">(05-11-24)</span> <span class="mr-2">-</span> <span class="italic">Pablo Neruda</span>
-        </div>
-        <!--  -->
-        <div class="flex justify-end align-middle  w-1/4 gap-3 group-hover:font-bold group-hover:text-[#cf9935] items-center ">
-          <div><button class="w-6"><img src="img/icon-proyect.png" alt=""></button></div>
-          <div><span>52 LIKES</span></div>
-          <div><button>>></button></div>
-        </div>
-      </a>
-
-      <a role="button" class="flex flex-row w-full p-4 pl-6 border-b-2 group border-first-theme hover:border-[#cf9935]">
-        <div class="w-3/4 gap-3 font-semibold group-hover:font-bold group-hover:text-[#cf9935] content-center ">
-            <span class="mr-2">SUEÑO: Un mundo feliz</span> <span class="mr-2">(11-05-24)</span> <span class="mr-2">-</span> <span class="italic">Aldohus Huxley</span>
-        </div>
-        <!--  -->
-        <div class="flex justify-end align-middle  w-1/4 gap-3 group-hover:font-bold group-hover:text-[#cf9935] items-center ">
-          <div><button class="w-6"><img src="img/icon-proyect.png" alt=""></button></div>
-          <div><span>42 LIKES</span></div>
-          <div><button>>></button></div>
-        </div>
-      </a>
-
-      <a role="button" class="flex flex-row w-full p-4 pl-6 border-b-2 group border-first-theme hover:border-[#cf9935]">
-        <div class="w-3/4 gap-3 font-semibold group-hover:font-bold group-hover:text-[#cf9935] content-center ">
-            <span class="mr-2">SUEÑO: El Gato Negro</span> <span class="mr-2">(31-85-24)</span> <span class="mr-2">-</span> <span class="italic">Edgar Allan Poe</span>
-        </div>
-        <!--  -->
-        <div class="flex justify-end align-middle  w-1/4 gap-3 group-hover:font-bold group-hover:text-[#cf9935] items-center ">
-          <div><button class="w-6"><img src="img/icon-proyect.png" alt=""></button></div>
-          <div><span>61 LIKES</span></div>
-          <div><button>>></button></div>
-        </div>
-      </a>
-
-      <a role="button" class="flex flex-row w-full p-4 pl-6 border-b-2 group border-first-theme hover:border-[#cf9935]">
-        <div class="w-3/4 gap-3 font-semibold group-hover:font-bold group-hover:text-[#cf9935] content-center ">
-            <span class="mr-2">SUEÑO: Los hermanos Karamazov</span> <span class="mr-2">(04-05-22)</span> <span class="mr-2">-</span> <span class="italic">Fiodor Dostoyevsky</span>
-        </div>
-        <!--  -->
-        <div class="flex justify-end align-middle  w-1/4 gap-3 group-hover:font-bold group-hover:text-[#cf9935] items-center ">
-          <div><button class="w-6"><img src="img/icon-proyect.png" alt=""></button></div>
-          <div><span>111 LIKES</span></div>
-          <div><button>>></button></div>
-        </div>
-      </a>
-    </div>
-
-    <div class="flex flex-row mt-4">
-      <div class="w-1/2"></div>
+<section class="bg-[#16161d] min-h-[600px] h-[85vh] relative">
+  <div class="flex flex-col p-6 border-4 border-first-theme rounded-3xl h-full min-h-[30rem] text-first-th\eme space-y-5">
+    <div class="flex flex-row h-16">
+      <div class="w-1/2">
+        <a  routerLink="/user/user-proyections" role="button" class="p-2.5 font-bold text-white text-md bg-first-theme rounded-xl">
+          <fa-icon class="mr-2 icon-brand" [icon]="['fas', 'user']"></fa-icon>
+          <span>Mis Hypnoproyecciones</span>
+        </a>
+      </div>
       <div class="w-1/2 text-end text-first-theme">
-        <a role="button" href="make-dream" class="flex items-center justify-self-end"title="Comparte tu sueño">
+        <a role="button" routerLink="/user/make-dream"  class="flex items-center justify-self-end"title="Comparte tu sueño">
           <div><span class="text-transparent bg-gradient-to-r from-white via-white to-transparent bg-clip-text scrolling-text-container">Comparte tu sueño</span></div>
-
           <fa-icon class="ml-2 text-4xl icon-brand" [icon]="['fas','circle-plus']"></fa-icon>
         </a>
       </div>
+    </div>
+
+    <div *ngIf="hypnoproyectionList.length > 0; " class="flex-1 overflow-y-scroll">
+      <ul>
+        <li *ngFor="let item of hypnoproyectionList">
+          <a role="button" class="flex flex-row w-full p-4 pl-6 border-b-2 group border-first-theme hover:border-[#cf9935]">
+            <div class="w-3/4 gap-3 font-semibold group-hover:font-bold group-hover:text-[#cf9935] content-center text-white">
+              <span class="mr-2">{{ item.name }}</span>
+              <span class="mr-2">-</span>
+              <span class="mr-2">({{ item.createdAt }})</span>
+              <span class="mr-2">-</span>
+              <span class="italic">{{ item.userName }}</span>
+            </div>
+            <div class="flex justify-end align-middle w-1/4 gap-3 group-hover:font-bold group-hover:text-[#cf9935] items-center">
+              <div><button class="w-6"><img src="img/icon-proyect.png" alt=""></button></div>
+              <!-- <div><span>52 LIKES</span></div> -->
+              <div><button></button></div>
+            </div>
+          </a>
+        </li>
+      </ul>
     </div>
   </div>
 </section>

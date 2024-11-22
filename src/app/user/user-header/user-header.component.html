@@ -9,7 +9,7 @@
       <a  role="button"
           *ngIf="isAuthenticated$ | async"
           routerLink="/home"
-          [ngClass]="{'select w-24': home.isActive,
+          [ngClass]="{'select w-24 bg-white': home.isActive,
         'w-8': !home.isActive}"
           #home="routerLinkActive"
           routerLinkActive="active"
@@ -27,7 +27,7 @@
     <li class="hidden md:block nav-item">
       <a role="button"
         *ngIf="isAuthenticated$ | async"
-        [ngClass]="{'w-52 select': hypnoproyections.isActive,
+        [ngClass]="{'w-52 select bg-white': hypnoproyections.isActive,
         'w-8': !hypnoproyections.isActive}"
         #hypnoproyections="routerLinkActive"
         routerLink="/hypnoproyecciones"
@@ -44,7 +44,7 @@
     <li class="hidden md:block nav-item">
       <a role="button"
         *ngIf="isAuthenticated$ | async"
-        [ngClass]="{'w-56 select': make_dream.isActive,
+        [ngClass]="{'w-56 select bg-white': make_dream.isActive,
         'w-8': !make_dream.isActive}"
         #make_dream="routerLinkActive"
         routerLinkActive="active"

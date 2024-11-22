@@ -1,8 +1,6 @@
 import { DataAuth } from "./data-auth";
+import { ResponseApi } from "./response-api";
 
-export interface AuthResponse {
-  statusCode: number;
+export interface AuthResponse extends ResponseApi {
   data: DataAuth;
-  message: string;
-  success: boolean;
 }

@@ -41,7 +41,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .nav-bar-user .nav-item > a{
   @apply flex items-center gap-2 p-2 transition-all duration-500 rounded-xl hover:bg-white;
 }
-.nav-bar-user .nav-item > a.select{
+.nav-bar-user .nav-item > a.sroelect{
   @apply bg-white;
 }
 

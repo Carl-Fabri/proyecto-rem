@@ -18,6 +18,11 @@ export class AuthStateService {
     return session ? { info: session.data.resource } : null;
   }
 
+  getToken(): string | null {
+    const session = this.getSesstion();
+    return session ? session.data.access_token : null;
+  }
+
   getSesstion(): AuthResponse | null {
     let currentSession: AuthResponse | null = null;
     const maybeSession = this._storageService.get<AuthResponse>('session');
