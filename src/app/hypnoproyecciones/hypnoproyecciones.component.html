@@ -1,13 +1,13 @@
 <section class="bg-[#16161d] min-h-[600px] h-[85vh] relative">
   <div class="flex flex-col p-6 border-4 border-first-theme rounded-3xl h-full min-h-[30rem] text-first-th\eme space-y-5">
-    <div class="flex flex-row h-16">
-      <div class="w-1/2">
+    <div class="flex flex-col h-16 gap-5 md:flex-row md:gap-0">
+      <div class="md:w-1/2">
         <a  routerLink="/user/user-proyections" role="button" class="p-2.5 font-bold text-white text-md bg-first-theme rounded-xl">
           <fa-icon class="mr-2 icon-brand" [icon]="['fas', 'user']"></fa-icon>
           <span>Mis Hypnoproyecciones</span>
         </a>
       </div>
-      <div class="w-1/2 text-end text-first-theme">
+      <div class="md:w-1/2 text-end text-first-theme">
         <a role="button" routerLink="/user/make-dream"  class="flex items-center justify-self-end"title="Comparte tu sueño">
           <div><span class="text-transparent bg-gradient-to-r from-white via-white to-transparent bg-clip-text scrolling-text-container">Comparte tu sueño</span></div>
           <fa-icon class="ml-2 text-4xl icon-brand" [icon]="['fas','circle-plus']"></fa-icon>
@@ -18,13 +18,13 @@
     <div *ngIf="hypnoproyectionList.length > 0; " class="flex-1 overflow-y-scroll">
       <ul>
         <li *ngFor="let item of hypnoproyectionList">
-          <a role="button" class="flex flex-row w-full p-4 pl-6 border-b-2 group border-first-theme hover:border-[#cf9935]">
-            <div class="w-3/4 gap-3 font-semibold group-hover:font-bold group-hover:text-[#cf9935] content-center text-white">
-              <span class="mr-2">{{ item.name }}</span>
-              <span class="mr-2">-</span>
-              <span class="mr-2">({{ item.createdAt }})</span>
-              <span class="mr-2">-</span>
-              <span class="italic">{{ item.userName }}</span>
+          <a [routerLink]="['/hypnoproyection-detail', item.id]" role="button" class="flex flex-row w-full p-4 pl-6 border-b-2 group border-first-theme hover:border-[#cf9935]">
+            <div class="w-3/4 gap-3 font-semibold group-hover:font-bold group-hover:text-[#cf9935] content-center text-white flex">
+              <span title="{{ item.name }}" class="overflow-hidden truncate max-w-36">{{ item.name }}</span>
+              <span class="">-</span>
+              <span class="overflow-hidden truncate max-w-32">({{ item.createdAt }})</span>
+              <span class="">-</span>
+              <span title="{{ item.userName }}" class="overflow-hidden truncate max-w-28">{{ item.userName }}</span>
             </div>
             <div class="flex justify-end align-middle w-1/4 gap-3 group-hover:font-bold group-hover:text-[#cf9935] items-center">
               <div><button class="w-6"><img src="img/icon-proyect.png" alt=""></button></div>

@@ -18,33 +18,46 @@
         <div class="mb-4 ">
           <label class="block mb-2 text-sm font-bold uppercase text-first-theme" for="usuario">NOMBRES Y APELLIDOS</label>
           <input class="w-full px-3 py-2 text-white rounded bg-[#16171d] border border-first-theme glow focus:outline-none focus:ring-2 focus:ring-yellow-500" id="usuario" type="text" placeholder="Ingresa tu usuario" formControlName="name">
+          <div *ngIf="registerFormControl['name'].invalid && registerFormControl['name'].touched" class="text-danger"> Nombre es requerido.</div>
         </div>
 
         <div class="mb-4 ">
           <label class="block mb-2 text-sm font-bold uppercase text-first-theme" for="usuario">Correo electronico</label>
           <input class="w-full px-3 py-2 text-white rounded bg-[#16171d] border border-first-theme glow focus:outline-none focus:ri ng-2 focus:ring-yellow-500" id="usuario" type="text" placeholder="Ingresa tu correo electronico" formControlName="email">
+          <div *ngIf="registerFormControl['email'].invalid && registerFormControl['email'].touched" class="text-danger">
+            Email es requerido y debe ser válido.
+          </div>
         </div>
         <div class="mb-4">
           <label class="block mb-2 text-sm font-bold text-first-theme" for="password">CONTRASEÑA</label>
-          <input class="w-full px-3 py-2 text-white rounded bg-[#16171d] border border-first-theme glow focus:outline-none focus:ring-2 focus:ring-yellow-500" id="password" type="password" formControlName="password" placeholder="Ingresa tu contraseña">
+          <input class="w-full px-3 py-2 text-white rounded bg-[#16171d] border border-first-theme glow focus:outline-none focus:ring-2 focus:ring-yellow-500" type="password" formControlName="password" placeholder="Ingresa tu contraseña">
+          <div *ngIf="registerFormControl['password'].invalid && registerFormControl['password'].touched" class="text-danger">
+            Contraseña es requerida.
+          </div>
         </div>
 
       <div class="mb-6">
           <label class="block mb-2 text-sm font-bold uppercase text-first-theme" for="password">Confirmar contraseña</label>
           <input class="w-full px-3 py-2 text-white rounded bg-[#16171d] border border-first-theme glow focus:outline-none focus:ring-2 focus:ring-yellow-500" id="password" type="password" placeholder="confirma tu contraseña" formControlName="confirmPassword">
-
-          <div class="mt-5 text-end">
-            <a class="hover:text-yellow-500" href="login">¿Ya tienes una cuenta? Ingresa aqui.</a>
+          <div *ngIf="registerFormControl['confirmPassword']?.errors?.['confirmPasswordValidator']" class="text-danger">
+            Las contraseñas no coinciden.
           </div>
-
       </div>
 
+      <div class="h-5 mt-5 mb-5" >
+        <p *ngIf="errorMessage" class="font-medium text-first-theme"> {{ errorMessage }}</p>
+      </div>
 
       <div class="flex items-center justify-between">
-          <button class="px-4 py-2 font-bold text-center text-white bg-yellow-700 rounded focus:outline-none focus:shadow-outline" type="button" type="submit" [disabled]="!form.valid">
+          <button class="w-full px-4 py-2 font-bold text-center text-white rounded bg-first-theme hover:bg-yellow-700 focus:outline-none focus:shadow-outline disabled:bg-gray-600" type="button" type="submit" [disabled]="!form.valid">
               Registrarse
           </button>
+          <!-- [ -->
       </div>
+      <div class="mt-5 text-end">
+        <a class="hover:text-yellow-500" href="login">¿Ya tienes una cuenta? Ingresa aqui.</a>
+      </div>
+
       </div>
     </form>
   </div>

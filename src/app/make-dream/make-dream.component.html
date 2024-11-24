@@ -16,19 +16,31 @@
       <span class="text-sm font-bold uppercase text-first-theme">Titulo</span>
       <input class="w-full p-3 mt-2 text-white bg-transparent border-2 border-first-theme focus:outline-none focus:shadow-outline"
         type="text" placeholder="" formControlName="title">
+        <span class="text-danger"
+        *ngIf="makeDreamFormControl['title']?.touched && makeDreamFormControl['title']?.errors">
+        Se requiere un titulo no menor de 4 caracteres.
+      </span>
     </div>
     <div class="mt-8">
       <span class="text-sm font-bold uppercase text-first-theme">Etiquetas</span>
       <input class="w-full p-3 mt-2 text-white bg-transparent border-2 border-first-theme focus:outline-none focus:shadow-outline" formControlName="tags" type="text">
+      <span class="text-danger"
+      *ngIf="makeDreamFormControl['tags']?.touched && makeDreamFormControl['tags']?.errors">
+      Se requiere que se coloque como minimo una etiqueta de mas de 4 caracteres
+    </span>
     </div>
     <div class="mt-8">
       <span class="text-sm font-bold uppercase text-first-theme">Descripción</span>
       <textarea
         class="w-full h-32 p-3 mt-2 text-white bg-transparent border-2 border-first-theme border-2s focus:outline-none focus:shadow-outline" formControlName="message"></textarea>
+        <span class="text-danger"
+        *ngIf="makeDreamFormControl['message']?.touched && makeDreamFormControl['message']?.errors">
+        Se requiere que se coloque una descripción con mas de 10 caracteres.
+      </span>
     </div>
     <div class="mt-8">
       <button
-        class="w-full p-3 text-sm font-bold tracking-wide text-gray-100 uppercase  rounded-lg focus:outline-none focus:shadow-outline bg-[#c99434]" type="submit">
+        class="w-full p-3 text-sm font-bold tracking-wide text-gray-100 uppercase  rounded-lg focus:outline-none focus:shadow-outline bg-[#c99434] disabled:bg-gray-600"  [disabled]="!form.valid"  type="submit">
         Crear sueño
       </button>
     </div>

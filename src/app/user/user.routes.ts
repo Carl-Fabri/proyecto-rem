@@ -19,5 +19,5 @@ export default [
     path: 'make-dream',
     canActivate: [privateGuard],
     loadComponent: () => import('../make-dream/make-dream.component').then(m => m.MakeDreamComponent),
-  },
+  }
 ] as Routes

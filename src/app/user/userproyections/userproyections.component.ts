@@ -21,11 +21,14 @@ export class UserproyectionsComponent {
   hypnoproyectionUser: Hyproyections[] = [];
   hypnoproyectionApi = inject(HypnoproyectionsService);
 
-  constructor(library: FaIconLibrary,private dialog: MatDialog) {
+  constructor(library: FaIconLibrary,private dialog: MatDialog) {}
+
+  ngOnInit(): void {
     this.hypnoproyectionApi.getHypnoproyectionsList().subscribe((data) => {
       this.hypnoproyectionUser = data.filter(item => item.status === true);
     });
   }
+
 
   deleteHypnoproyection(postId: number) {
     this.hypnoproyectionApi.deleteHypnoProyection(postId).subscribe();
@@ -41,6 +44,7 @@ export class UserproyectionsComponent {
       if (result) {
         this.deleteHypnoproyection(postId);
       }
+      this.ngOnInit();
     });
   }
 
@@ -53,7 +57,7 @@ export class UserproyectionsComponent {
 
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-
+        this.ngOnInit();
       }
     });
   }

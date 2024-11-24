@@ -6,6 +6,10 @@ export interface HyproyectionsResponse extends ResponseApi {
   data: HyproyectionsData;
 }
 
+export interface HyproyectionIdResponse extends ResponseApi {
+  data: Hyproyections[];
+}
+
 export interface HyproyectionsData{
   posts: Hyproyections[];
   paginate: Pagination;

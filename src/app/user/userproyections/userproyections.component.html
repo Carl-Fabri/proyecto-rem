@@ -21,12 +21,12 @@
       <ul>
         <li *ngFor="let item of hypnoproyectionUser">
           <a role="button" class="flex flex-row w-full p-4 pl-6 border-b-2 group border-first-theme hover:border-[#cf9935]">
-            <div class="w-3/4 gap-3 font-semibold group-hover:font-bold group-hover:text-[#cf9935] content-center text-white">
-              <span class="mr-2">{{ item.name }}</span>
-              <span class="mr-2">-</span>
-              <span class="mr-2">({{ item.createdAt }})</span>
-              <span class="mr-2">-</span>
-              <span class="italic">{{ item.userName }}</span>
+            <div class="w-3/4 gap-3 font-semibold group-hover:font-bold group-hover:text-[#cf9935] content-center text-white flex" [routerLink]="['/hypnoproyection-detail', item.id]" >
+              <span title="{{ item.name }}" class="overflow-hidden truncate max-w-36">{{ item.name }}</span>
+              <span class="">-</span>
+              <span class="overflow-hidden truncate max-w-36">({{ item.createdAt }})</span>
+              <span class="">-</span>
+              <span title="{{ item.userName }}" class="overflow-hidden truncate max-w-28">{{ item.userName }}</span>
             </div>
             <div class="flex items-center justify-end w-1/4 gap-3 align-middle cursor-default">
               <div><button (click)="openEditDialog(item)" class="px-3 py-2 font-bold text-white transition-all rounded-md bg-first-theme">Edit</button></div>

@@ -1,0 +1,20 @@
+<section class="bg-[#16161d] h-max relative">
+  <div class="px-10 py-8 border-4 min-h-[90vh] border-first-theme rounded-3xl h-full text-first-th\eme">
+    <div class="flex flex-col justify-between align-middle mb-7 md:mb-4 md:flex-row">
+      <h2 class="mb-4 text-2xl font-medium uppercase md:text-3xl text-first-theme">{{hypnoproyection?.name}}</h2>
+      <p class="text-white"> <span class="font-semibold text-first-theme">Fecha: </span><span>{{hypnoproyection?.createdAt}}</span></p>
+    </div>
+
+    <div class="mb-7">
+      <p class="mb-2 font-semibold text-md text-first-theme">DESCRIPCION DE SUEÑO:</p>
+      <p class="text-white">
+        {{hypnoproyection?.message}}
+      </p>
+    </div>
+
+    <p class="mb-2 font-semibold text-md text-first-theme">ETIQUETA DE SUEÑO:</p>
+    <div class="flex flex-wrap gap-2">
+      <span  *ngFor="let tag of hypnoproyection?.tags" class="px-2 py-1 font-semibold text-black rounded-lg bg-first-theme">{{tag}}</span>
+    </div>
+  </div>
+</section>

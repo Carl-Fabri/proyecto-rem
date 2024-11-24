@@ -6,11 +6,12 @@ import { MAT_DIALOG_DATA, MatDialogActions, MatDialogContent, MatDialogRef, MatD
 import { HypnoproyectionsService } from '../../core/service/hypnoproyections.service';
 import {MatInputModule} from '@angular/material/input';
 import { MatButton } from '@angular/material/button';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-edit-hypnoproyection',
   standalone: true,
-  imports: [MatFormField,ReactiveFormsModule,MatDialogContent,MatDialogTitle,MatFormFieldModule,MatButton,MatDialogActions,MatLabel,MatError,MatFormFieldModule,MatInputModule],
+  imports: [MatFormField,ReactiveFormsModule,MatDialogContent,MatDialogTitle,MatFormFieldModule,MatButton,MatDialogActions,MatLabel,MatError,MatFormFieldModule,MatInputModule,CommonModule],
   templateUrl: './edit-hypnoproyection.component.html',
   styleUrl: './edit-hypnoproyection.component.css'
 })
