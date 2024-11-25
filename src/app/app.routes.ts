@@ -34,7 +34,9 @@ export const routes: Routes = [
       {
         path: 'hypnoproyection-detail/:id',
         canActivate: [privateGuard],
+        data: { renderMode: 'default'},
         loadComponent: () => import('./hypnoproyection-detail/hypnoproyection-detail.component').then(m => m.HypnoproyectionDetailComponent),
+
       },
     ],
   },
