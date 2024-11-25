@@ -25,15 +25,15 @@ export class HypnoproyectionsService {
     const headers = new HttpHeaders().set('Authorization', `Bearer ${this.token}`);
 
     //! Cambiar Agregar la paginacion de hypnoproyecciones
-    // let queryParams = new HttpParams();
-    // queryParams = queryParams.append('page', 1);
-    // queryParams = queryParams.append('per_page', 5);
+    let queryParams = new HttpParams();
+    queryParams = queryParams.append('page', 1);
+    queryParams = queryParams.append('limit', 100000);
 
     // return this.http.get<HyproyectionsResponse>(`${this.apiUrl}/posts/all/`,{ headers, params: queryParams }).pipe(
     //   map(response => response.data.posts)
     // );
 
-      return this.http.get<HyproyectionsResponse>(`${this.apiUrl}/posts/all/`,{ headers }).pipe(
+      return this.http.get<HyproyectionsResponse>(`${this.apiUrl}/posts/all/`,{ headers, params: queryParams  }).pipe(
       map(response => response.data.posts)
     );
   }

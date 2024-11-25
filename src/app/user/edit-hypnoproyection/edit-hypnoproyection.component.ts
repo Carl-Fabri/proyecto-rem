@@ -25,9 +25,9 @@ export class EditHypnoproyectionComponent {
     private hypnoproyectionsService: HypnoproyectionsService
   ) {
     this.form = this.fb.group({
-      name: [data.name, Validators.required],
-      message: [data.message, Validators.required],
-      tags: [data.tags.join(', '), Validators.required]
+      name: [data.name, [Validators.required,Validators.minLength(4)]],
+      message: [data.message, [Validators.required,Validators.minLength(10)]],
+      tags: [data.tags.join(', '), [Validators.required,Validators.minLength(3)]]
     });
   }
 
