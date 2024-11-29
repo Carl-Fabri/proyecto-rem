@@ -8,6 +8,7 @@ import { UserLayoutComponent } from './user/user-layout/user-layout.component';
 import { privateGuard } from './shared/guards/private.guard';
 import { authGuard } from './shared/guards/auth.guard';
 import { adminGuard } from './shared/guards/admin.guard';
+import { HypnovisionComponent } from './hypnovision/hypnovision.component';
 
 export const routes: Routes = [
 
@@ -37,6 +38,11 @@ export const routes: Routes = [
         data: { renderMode: 'default'},
         loadComponent: () => import('./hypnoproyection-detail/hypnoproyection-detail.component').then(m => m.HypnoproyectionDetailComponent),
 
+      },
+      {
+        path: 'hypnovision',
+        canActivate: [privateGuard],
+        component: HypnovisionComponent
       },
     ],
   },
