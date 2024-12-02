@@ -12,6 +12,7 @@
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:application",
+
           "options": {
             "externalDependencies":[""],
             "outputPath": "dist",
@@ -41,6 +42,7 @@
           },
           "configurations": {
             "production": {
+
               "budgets": [
                 {
                   "type": "initial",
@@ -73,10 +75,12 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "hypnoproyecciones:build:production"
+              "buildTarget": "hypnoproyecciones:build:production",
+              "proxyConfig": "src/proxy.conf.json"
             },
             "development": {
-              "buildTarget": "hypnoproyecciones:build:development"
+              "buildTarget": "hypnoproyecciones:build:development",
+              "proxyConfig": "src/proxy.conf.json"
             }
           },
           "defaultConfiguration": "development"
