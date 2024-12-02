@@ -1,5 +1,5 @@
 {
-  "/api": {
+  "/api/*": {
     "target": "https://api.proyecto-rem.com/",
     "secure": false
   }
