@@ -26,7 +26,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
   /*--- Home styles ---*/
   .main-menu a.main-menu-item{
-    @apply text-2xl font-bold underline transition-all md:text-5xl text-first-theme font-archivomoto;
+    @apply text-2xl font-bold underline transition-all md:text-5xl text-white font-archivomoto bg-first-theme p-4 rounded-lg hover:bg-white hover:text-first-theme;
   }
 
   .specimen-details{
